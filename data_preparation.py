@@ -11,6 +11,7 @@ import os
 import shutil
 import glob
 from tqdm import tqdm
+import splitfolders
 
 !unzip -FF /content/mrlEyes_2018_01.zip
 
@@ -59,16 +60,16 @@ for dirpath, dirname, filenames in os.walk(Raw_DIR):
         elif i.split ('_')[4]=='1':
             shutil.copy(src=dirpath+'/'+i, dst=r'/content/Prepared Data/Open Eyes')
 
-!pip install --upgrade pip
+"""!pip install --upgrade pip
 
 !apt-get install -y python3.10-venv
 
 !python3 -m venv my_venv
 !source my_venv/bin/activate
 
-!pip install split-folders
+!pip install split-folders"""
 
-import splitfolders
+
 input_folders = r'/content/Prepared Data'
 splitfolders.ratio(input_folders, output='Prepared_Data(2)', ratio=(.8, .2), group_prefix = None)
 
